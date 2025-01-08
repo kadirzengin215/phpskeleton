@@ -1,0 +1,68 @@
+{
+    "name": "kadirzengin215/php-skeleton",
+    "description": "PHP Skeleton provides a ready-to-use structure for quickly developing a new PHP package.",
+    "keywords": [
+        "php",
+        "skeleton",
+        "package"
+    ],
+    "type": "package",
+    "license": "MIT",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "Kadir Zengin",
+            "email": "kadirzengin215@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Kadirzengin215\\PhpSkeleton\\": "src/"
+        },
+        "files": [
+            "src/Helpers/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kadirzengin215\\PhpSkeleton\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.4"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.19",
+        "pestphp/pest": "^3.7",
+        "pestphp/pest-plugin-faker": "^3.0",
+        "pestphp/pest-plugin-type-coverage": "^3.2",
+        "phpstan/phpstan": "^2.1",
+        "rector/rector": "^2.0",
+        "symfony/var-dumper": "^7.2"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "run:pint": "pint",
+        "run:rectorphp": "rector",
+        "run:coverage-html": "pest --colors=always --coverage -parallel --coverage-html=.coverage/html",
+        "test:rectorphp": "rector --dry-run --ansi",
+        "test:pest": "pest --colors=always",
+        "test:coverage": "pest --colors=always --coverage -parallel --min=100",
+        "test:phpstan": "phpstan analyse --ansi",
+        "test:pint": "pint --test --ansi",
+        "test": [
+            "@test:rectorphp",
+            "@test:coverage",
+            "@test:phpstan",
+            "@test:pint"
+        ]
+    }
+}
